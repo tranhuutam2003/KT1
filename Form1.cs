@@ -4,17 +4,17 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
 namespace BTH2
 {
     public partial class Form1 : Form
     {
         string connectionString = "Data Source=LAPTOP-7NSHMMSK;Initial Catalog=BTCK;Integrated Security=True";
-
+        
         public Form1()
         {
             InitializeComponent();
@@ -182,7 +182,40 @@ namespace BTH2
                 cbbloaitacpham.SelectedItem = row.Cells["loaitacpham"].Value.ToString();
             }
         }
+        private void btnxuatexxel_Click(object sender, EventArgs e)
+        {
+            using (SaveFileDialog saveFileDialog = new SaveFileDialog())
+            {
+                saveFileDialog.Filter = "CSV Files|*.csv";
+                saveFileDialog.Title = "Save a CSV File";
+                saveFileDialog.FileName = "DataExport.csv";
 
+                if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    StringBuilder csvContent = new StringBuilder();
 
+                    // Thêm tiêu đề cột từ DataGridView
+                    for (int i = 0; i < dataGridView1.Columns.Count; i++)
+                    {
+                        csvContent.Append(dataGridView1.Columns[i].HeaderText + ",");
+                    }
+                    csvContent.AppendLine();
+
+                    // Thêm dữ liệu từ DataGridView vào CSV
+                    for (int i = 0; i < dataGridView1.Rows.Count; i++)
+                    {
+                        for (int j = 0; j < dataGridView1.Columns.Count; j++)
+                        {
+                            csvContent.Append(dataGridView1.Rows[i].Cells[j].Value?.ToString() + ",");
+                        }
+                        csvContent.AppendLine();
+                    }
+
+                    // Lưu file
+                    File.WriteAllText(saveFileDialog.FileName, csvContent.ToString());
+                    MessageBox.Show("Dữ liệu đã được xuất ra file CSV thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+        }
     }
 }
