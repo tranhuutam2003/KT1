@@ -1,0 +1,10 @@
+C:\Users\tam tran\source\repos\BTH2\bin\Debug\BTH2.exe.config
+C:\Users\tam tran\source\repos\BTH2\bin\Debug\BTH2.exe
+C:\Users\tam tran\source\repos\BTH2\bin\Debug\BTH2.pdb
+C:\Users\tam tran\source\repos\BTH2\obj\Debug\BTH2.csproj.AssemblyReference.cache
+C:\Users\tam tran\source\repos\BTH2\obj\Debug\BTH2.Form1.resources
+C:\Users\tam tran\source\repos\BTH2\obj\Debug\BTH2.Properties.Resources.resources
+C:\Users\tam tran\source\repos\BTH2\obj\Debug\BTH2.csproj.GenerateResource.cache
+C:\Users\tam tran\source\repos\BTH2\obj\Debug\BTH2.csproj.CoreCompileInputs.cache
+C:\Users\tam tran\source\repos\BTH2\obj\Debug\BTH2.exe
+C:\Users\tam tran\source\repos\BTH2\obj\Debug\BTH2.pdb
